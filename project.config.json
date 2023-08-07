@@ -9,7 +9,7 @@
     "minified": true,
     "newFeature": true,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -18,16 +18,18 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "lazyloadPlaceholderEnable": false,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "useIsolateContext": false,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "userConfirmedUseIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
@@ -36,12 +38,13 @@
     "disableUseStrict": false,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
-    "ignoreUploadUnusedFiles": true
+    "ignoreUploadUnusedFiles": true,
+    "condition": false
   },
   "compileType": "game",
-  "libVersion": "2.20.1",
+  "libVersion": "2.33.0",
   "appid": "wx03a6c2518de3ada1",
-  "projectname": "wechatGame",
+  "projectname": "wechat",
   "packOptions": {
     "ignore": [
       {
@@ -51,9 +54,14 @@
     ],
     "include": []
   },
-  "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
+  },
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {},
+  "staticServerOptions": {
+    "servePath": "assets"
   }
 }

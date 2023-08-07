@@ -6900,7 +6900,7 @@ var pixi_spine;
                 return next();
             }
             if (metadataAtlas && metadataAtlas.pages) {
-                var spineJsonParser = new pixi_spine.core.SkeletonJson(new pixi_spine.core.AtlasAttachmentLoader(metadataAtlas));
+                var spineJsonParser = new PIXI_spine.core.SkeletonJson(new PIXI_spine.core.AtlasAttachmentLoader(metadataAtlas));
                 if (metadataSkeletonScale) {
                     spineJsonParser.scale = metadataSkeletonScale;
                 }
@@ -6939,8 +6939,8 @@ var pixi_spine;
                     : metadata.imageLoader ? metadata.imageLoader(this, namePrefix, baseUrl, imageOptions)
                         : imageLoaderAdapter(this, namePrefix, baseUrl, imageOptions);
             var createSkeletonWithRawAtlas = function (rawData) {
-                new pixi_spine.core.TextureAtlas(rawData, adapter, function (spineAtlas) {
-                    var spineJsonParser = new pixi_spine.core.SkeletonJson(new pixi_spine.core.AtlasAttachmentLoader(spineAtlas));
+                new PIXI_spine.core.TextureAtlas(rawData, adapter, function (spineAtlas) {
+                    var spineJsonParser = new PIXI_spine.core.SkeletonJson(new PIXI_spine.core.AtlasAttachmentLoader(spineAtlas));
                     if (metadataSkeletonScale) {
                         spineJsonParser.scale = metadataSkeletonScale;
                     }
@@ -7058,10 +7058,10 @@ var pixi_spine;
                 throw new Error('spineData param cant be string. Please use spine.Spine.fromAtlas("YOUR_RESOURCE_NAME") from now on.');
             }
             _this.spineData = spineData;
-            _this.skeleton = new pixi_spine.core.Skeleton(spineData);
+            _this.skeleton = new PIXI_spine.core.Skeleton(spineData);
             _this.skeleton.updateWorldTransform();
-            _this.stateData = new pixi_spine.core.AnimationStateData(spineData);
-            _this.state = new pixi_spine.core.AnimationState(_this.stateData);
+            _this.stateData = new PIXI_spine.core.AnimationStateData(spineData);
+            _this.state = new PIXI_spine.core.AnimationState(_this.stateData);
             _this.slotContainers = [];
             _this.tempClipContainers = [];
             for (var i = 0, n = _this.skeleton.slots.length; i < n; i++) {
@@ -7447,7 +7447,7 @@ var pixi_spine;
             var attachment = slot.attachment;
             var region = attachment.region;
             if (texture) {
-                region = new pixi_spine.core.TextureRegion();
+                region = new PIXI_spine.core.TextureRegion();
                 region.texture = texture;
                 region.size = size;
             }

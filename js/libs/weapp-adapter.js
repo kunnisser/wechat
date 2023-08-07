@@ -125,7 +125,6 @@
 	  value: true
 	});
 	exports.cancelAnimationFrame = exports.requestAnimationFrame = exports.clearInterval = exports.clearTimeout = exports.setInterval = exports.setTimeout = exports.canvas = exports.location = exports.localStorage = exports.HTMLElement = exports.FileReader = exports.Audio = exports.Image = exports.WebSocket = exports.XMLHttpRequest = exports.navigator = exports.document = undefined;
-
 	var _WindowProperties = __webpack_require__(2);
 
 	Object.keys(_WindowProperties).forEach(function (key) {
@@ -664,7 +663,7 @@
 
 	  canvas.type = 'canvas';
 
-	  canvas.__proto__.__proto__ = new _HTMLElement2.default('canvas');
+	  canvas.__proto__.__proto__ = new HTMLCanvasElement('canvas');
 
 	  var _getContext = canvas.getContext;
 
@@ -1297,7 +1296,14 @@
 	  }, {
 	    key: 'overrideMimeType',
 	    value: function overrideMimeType() {}
-	  }, {
+    }, 
+    {
+      key: 'addEventListener',
+      value: function addEventListener(ev, cb) {
+        this[`on${ev}`] = cb
+      }
+    },
+    {
 	    key: 'send',
 	    value: function send() {
 	      var _this = this;

@@ -2,14 +2,12 @@
  * Created by kunnisser on 2017/8/2.
  * 初始化Game
  * */
-require('./js/libs/weapp-adapter');
+require('./js/libs/index');
 import './js/libs/symbol';
-import * as PIXI from 'pixi.min';
-import { canvas } from './js/libs/weapp-adapter';
-import * as Spine from 'pixi-spine';
-GameGlobal.PIXI = PIXI;
-
+const PIXI = require('pixi.min.js');
+const dragonBones = require('dragonBones.min.js');
 require('unsafe-eval.min');
+
 class initGame{
     constructor () {
       // let conf = configCreate.createConfig();
@@ -24,18 +22,31 @@ class initGame{
 
       const world = new PIXI.Container();
       app.stage.addChild(world);
-        console.log(Spine);
-      // const loader = app.loader;
-      // loader.add('role_tex', './assets/role_tex.json');
-      // loader.load(() => {
-      //   console.log(Spine);
-      //   const spine = new Spine(loader.resources['role_tex'].spineData);
-      //   spine.name = 'role_tex';
-      //   world.addChild(spine);
-      // })
-      console.log(world);
+      const loader = app.loader;
+      loader.add('texSke','assets/role_ske.json');
+      loader.add('texData','assets/role_tex.json');
+      loader.add('tex','assets/role_tex.png');
+      loader.load(() => {
+        console.log(loader.resources);
+        console.log(PIXI.utils.TextureCache);
+        const factory = dragonBones.PixiFactory.factory;
+        factory.parseDragonBonesData(loader.resources["texSke"].data);
+        factory.parseTextureAtlasData(loader.resources["texData"].data, PIXI.utils.TextureCache['tex']);
+        //
+        const sprite = factory.buildArmatureDisplay("role");
+        sprite.x = 200.0;
+        sprite.y = 200.0;
+        sprite.scale.set(0.5);
+        console.log(sprite);
+        sprite.animation.play("idle");
+        // const sprite = new PIXI.Sprite(PIXI.utils.TextureCache['tex']);
+        world.addChild(sprite);
+      });
 
+  
+  
 
+      app.renderer.render(app.stage);
 
       // window.gameConfig = conf;
       // // 符合条件进入boot状态
