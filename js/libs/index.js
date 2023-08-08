@@ -58,3 +58,5 @@ if (!GameGlobal.__isAdapterInjected) {
     GameGlobal.__isAdapterInjected = true
     inject()
 }
+
+export default GameGlobal;

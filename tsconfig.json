@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+      "baseUrl": ".",
+      "outDir": "dist",
+      "sourceMap": false,
+      "target": "es5",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "allowJs": true,
+      "noUnusedLocals": true,
+      "strictNullChecks": true,
+      "noImplicitAny": false,
+      "noImplicitThis": true,
+      "experimentalDecorators": true,
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "removeComments": false,
+      "jsx": "preserve",
+      "lib": ["esnext", "dom"],
+      "rootDir": ".",
+      "noEmit": false,
+      "paths": {
+      },
+      "types": ["minigame-api-typings"],
+  },
+  "exclude": [
+      "./node_modules"
+  ]
+}

@@ -1,2 +1,1 @@
-import initgame from './initGame.js';
-new initgame();
+import './dist/main.min';
