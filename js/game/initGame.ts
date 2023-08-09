@@ -7,7 +7,7 @@ import "../libs/symbol";
 import { canvas } from "../libs/window";
 import * as PIXI from "./pixi.min";
 import "./unsafe-eval.min.js";
-import {dragonBones} from "./dragonBones.min.js";
+import dragonBones from "./dragonBones.min.js";
 class initGame {
   constructor() {
     const { pixelRatio, windowWidth, windowHeight } = wx.getSystemInfoSync();
@@ -40,7 +40,6 @@ class initGame {
       sprite.scale.set(0.5);
       console.log(sprite);
       sprite.animation.play("idle");
-      // const sprite = new PIXI.Sprite(PIXI.utils.TextureCache['tex']);
       world.addChild(sprite);
     });
 

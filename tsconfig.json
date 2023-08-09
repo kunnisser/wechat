@@ -23,6 +23,10 @@
       },
       "types": ["minigame-api-typings"],
   },
+  "include": [
+    "js/game/**/*",
+    "game.js"
+  ],
   "exclude": [
       "./node_modules"
   ]

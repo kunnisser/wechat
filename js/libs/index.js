@@ -1,7 +1,7 @@
 import * as _window from './window'
 import document from './document'
 
-const global = GameGlobal
+const global = GameGlobal;
 
 GameGlobal.global = GameGlobal.global || global
 
