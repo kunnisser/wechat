@@ -35,11 +35,12 @@ class initGame {
       );
       //
       const sprite = factory.buildArmatureDisplay("role");
-      sprite.x = 200.0;
-      sprite.y = 200.0;
-      sprite.scale.set(0.5);
+      sprite.x = 180.0;
+      sprite.y = 300.0;
+      sprite.scale.set(0.4);
       console.log(sprite);
-      sprite.animation.play("idle");
+      sprite.animation.play("attack");
+      sprite.animation.timeScale = 4;
       world.addChild(sprite);
     });
 
