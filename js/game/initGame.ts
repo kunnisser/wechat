@@ -39,8 +39,16 @@ class initGame {
       sprite.y = 300.0;
       sprite.scale.set(0.4);
       console.log(sprite);
-      sprite.animation.play("attack");
-      sprite.animation.timeScale = 4;
+      sprite.animation.play("idle");
+      sprite.animation.timeScale = 2;
+      sprite.interactive = true;
+      const temp = ['idle', 'running', 'attack'];
+      let index = 0;
+      sprite.on('pointerdown', () => {
+        index += 1;
+        index >= 3 && (index = 0);
+        sprite.animation.play(temp[index]);
+      });
       world.addChild(sprite);
     });
 
