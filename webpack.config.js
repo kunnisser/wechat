@@ -35,6 +35,9 @@ module.exports = {
   },
   plugins: [new progressBarPlugin()],
   resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "js/game")
+    },
     extensions: [".tsx", ".ts", ".js"]
   }
 };

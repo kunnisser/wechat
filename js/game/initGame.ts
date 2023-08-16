@@ -4,21 +4,20 @@
  * */
 import "../libs/index";
 import "../libs/symbol";
+import { Container, Application } from "@/pixi";
 import { canvas } from "../libs/window";
-import * as PIXI from "./pixi.min";
 import "./unsafe-eval.min.js";
 import dragonBones from "./dragonBones.min.js";
 class initGame {
   constructor() {
-    const { pixelRatio, windowWidth, windowHeight } = wx.getSystemInfoSync();
-    const app = new PIXI.Application({
+    const { windowWidth, windowHeight } = wx.getSystemInfoSync();
+    const app = new Application({
       width: windowWidth,
       height: windowHeight,
-      dpr: pixelRatio,
       view: canvas
     });
 
-    const world = new PIXI.Container();
+    const world = new Container();
     app.stage.addChild(world);
     const loader = app.loader;
     loader.add("texSke", "assets/role_ske.json");
