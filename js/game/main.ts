@@ -1,2 +1,2 @@
-import initGame from './initGame';
+import initGame from "./initGame";
 new initGame();

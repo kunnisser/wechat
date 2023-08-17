@@ -20,6 +20,7 @@
       "rootDir": ".",
       "noEmit": false,
       "paths": {
+        "@/*": ["js/game/*"]
       },
       "types": ["minigame-api-typings"],
   },
