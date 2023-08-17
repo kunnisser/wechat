@@ -1,8 +1,8 @@
 /* 场景基础类 */
 
-import { Container } from 'pixi.js';
-import KnGraphics from './kn_graphics';
-import KnMessage from '../gameui/kn_message';
+import { Container } from "@/pixi";
+import KnGraphics from "./kn_graphics";
+import KnMessage from "../gameui/kn_message";
 
 class KnScene extends Container {
   public game: any;
@@ -59,7 +59,7 @@ class KnScene extends Container {
   }
 
   loading(nextTarget: KnScene) {
-    throw new Error('Method not implemented.');
+    throw new Error("Method not implemented.");
   }
 
   // 离开场景

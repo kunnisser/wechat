@@ -1,7 +1,7 @@
-import { TilingSprite, Texture } from 'pixi.js';
-import KnGroup from '../gameobjects/kn_group';
-import KnScene from '../gameobjects/kn_scene';
-class KnTiling extends TilingSprite{
+import { TilingSprite, Texture } from "@/pixi";
+import KnGroup from "../gameobjects/kn_group";
+import KnScene from "../gameobjects/kn_scene";
+class KnTiling extends TilingSprite {
   constructor(texture: Texture, width: number, height: number) {
     super(texture, width, height);
   }

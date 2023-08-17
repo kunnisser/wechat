@@ -35,6 +35,10 @@ module.exports = {
   },
   plugins: [new progressBarPlugin()],
   resolve: {
+    fallback: {
+      "path": require.resolve("path-browserify"),
+      "url": require.resolve("url/")
+    },
     alias: {
       "@": path.resolve(__dirname, "js/game")
     },

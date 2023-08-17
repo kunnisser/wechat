@@ -6,6 +6,7 @@ class KnGraphics extends Graphics {
   public game: Game;
   public border: IBorder;
   public id: string | undefined;
+  public on: any;
   constructor(game: Game, id?: string) {
     super();
     this.game = game;

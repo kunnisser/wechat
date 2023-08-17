@@ -1,10 +1,10 @@
 import KnGroup from "../gameobjects/kn_group";
-import { Sprite } from "@/pixi";
 import Game from "../core";
 import { TransformImage } from "../utils/common";
+import KnSprite from "../gameobjects/kn_sprite";
 
 class KnSkButton extends KnGroup {
-  public skillBtn: Sprite;
+  public skillBtn: KnSprite;
   public game: Game;
   public originScale: number;
   public tween: any;

@@ -76,8 +76,8 @@ class KnFactory {
     const bg = new KnBackGround(name, imageKey, texture);
     bg.position.set(0, 0);
     bg.tintColor = "#ffffff";
-    bg.width = this.game.config.editorWidth;
-    bg.height = this.game.config.editorHeight;
+    bg.width = this.game.config.width;
+    bg.height = this.game.config.height;
     return bg;
   };
 

@@ -2,8 +2,8 @@
  * @Author: kunnisser
  * @Date: 2023-02-14 16:15:56
  * @LastEditors: kunnisser
- * @LastEditTime: 2023-07-25 10:28:07
- * @FilePath: /kunigame/projects/kuni/lib/gameobjects/kn_sprite.ts
+ * @LastEditTime: 2023-08-16 17:36:41
+ * @FilePath: /wechat/js/game/lib/gameobjects/kn_sprite.ts
  * @Description: ---- sprite类 ----
  */
 import { Sprite, Texture } from "@/pixi";
@@ -13,6 +13,7 @@ class KnSprite extends Sprite {
   game: Game;
   public id: String;
   public boot: Boolean;
+  public on: any;
   constructor(key: string, id: string, texture: Texture) {
     super(texture);
     this.id = id;

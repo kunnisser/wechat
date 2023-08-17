@@ -1,9 +1,10 @@
 import KnGroup from "../gameobjects/kn_group";
-import { Container, Graphics } from "@/pixi";
+import { Container } from "@/pixi";
 import Game from "../core";
 import KnScene from "../gameobjects/kn_scene";
 import { events } from "../utils/common";
 import KnText from "../gameobjects/kn_text";
+import KnGraphics from "../gameobjects/kn_graphics";
 
 interface IMODAL_OPTIONS {
   modalBg: String;
@@ -23,7 +24,7 @@ class KnModal extends KnGroup {
   public content: Container;
   public options: IMODAL_OPTIONS;
   public contentWidth: number;
-  public overlay: Graphics;
+  public overlay: KnGraphics;
   public titleText: KnText;
   public limitMin_Y: number; // 滚动上边界
   public limitMax_Y: number; // 滚动下边界
