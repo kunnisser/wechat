@@ -84,7 +84,6 @@ export default class Game {
       resolution: this.dpr
     });
 
-    // globalThis.__PIXI_APP__ = this.app;
 
     // 添加加载器实例
     this.loader = new KnLoader(this);
@@ -120,22 +119,12 @@ export default class Game {
       this.coverMask.scale.set(this.size.width / this.config.width);
     }
 
-    // 页面尺寸改变
-    // window.onresize = () => {
-    //   // 防抖函数
-    //   debounce.handler(() => {
-    //     this.resizeStage(this.view, config);
-    //   });
-    // };
-
     // 定义场景render刷新
     this.refresh();
   }
 
   // 重置画布尺寸
   resizeStage(config: EnterProps) {
-    // this.app.view.style.width = size.width + "px";
-    // this.app.view.style.height = size.height + "px";
 
     // 屏幕适配
     this.app.renderer["autoResize"] = true;
