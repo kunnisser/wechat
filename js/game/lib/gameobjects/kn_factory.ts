@@ -61,6 +61,10 @@ class KnFactory {
     const sprite = new KnSprite(name, imageKey, texture);
     align && sprite.anchor.set(...align);
     parent || (parent = this.game.world);
+    console.log(sprite.name, sprite.width);
+    sprite.width *= this.game.gameScale;
+    sprite.height *= this.game.gameScale;
+    console.log(sprite.name, sprite.width);
     return parent.addChild(sprite), sprite;
   };
 
@@ -68,6 +72,8 @@ class KnFactory {
     const [imageKey, texture] = this.generateTexture(key);
     const sprite = new KnSprite(name, imageKey, texture);
     anchor && sprite.anchor.set(...anchor);
+    sprite.width *= this.game.gameScale;
+    sprite.height *= this.game.gameScale;
     return sprite;
   };
 
@@ -160,6 +166,8 @@ class KnFactory {
   animation(frames: Array<PIXI.Texture>, speed: number) {
     const anim: AnimatedSprite = new AnimatedSprite(frames);
     anim.animationSpeed = speed || 0.5;
+    anim.width *= this.game.gameScale;
+    anim.height *= this.game.gameScale;
     return anim;
   }
 
@@ -193,8 +201,10 @@ class KnFactory {
 
   text(id: string, content: string, style: any, anchor: Array<number>) {
     let entryStyle = Object.assign({}, style);
+    console.log("text", this.game.gameScale);
     // 处理文字模糊
-    style.fontSize && (entryStyle.fontSize = 4 * style.fontSize);
+    style.fontSize &&
+      (entryStyle.fontSize = 4 * style.fontSize * this.game.gameScale);
     const text = new KnText(id, this.game, content, entryStyle, anchor);
     text.scale.set(0.25);
     return text;

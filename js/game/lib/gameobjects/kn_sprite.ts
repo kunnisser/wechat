@@ -2,7 +2,7 @@
  * @Author: kunnisser
  * @Date: 2023-02-14 16:15:56
  * @LastEditors: kunnisser
- * @LastEditTime: 2023-08-16 17:36:41
+ * @LastEditTime: 2023-08-31 17:18:49
  * @FilePath: /wechat/js/game/lib/gameobjects/kn_sprite.ts
  * @Description: ---- sprite类 ----
  */

@@ -55,6 +55,7 @@ export default class Game {
   public cursor: KnCursor; // 游戏光标
   public editX: number; // 编辑区的坐标
   public editY: number; // 编辑区的坐标
+  public gameScale: number; // 设备尺寸与设计稿的缩放比
   public size: {
     width: number;
     height: number;
@@ -64,7 +65,7 @@ export default class Game {
   ratio: number;
   constructor(config: EnterProps) {
     window["PIXI"] = PIXI;
-    const dpr = this.dpr = config.dpr || window.devicePixelRatio;
+    const dpr = (this.dpr = config.dpr || window.devicePixelRatio);
     this.camera = {};
 
     // 设置游戏画布基本尺寸
@@ -75,6 +76,8 @@ export default class Game {
       half_h: config.height * dpr * 0.5
     };
 
+    this.gameScale = this.config.width / 750;
+
     this.app = new Application({
       width: this.config.width,
       height: this.config.height,
@@ -83,7 +86,6 @@ export default class Game {
       view: config.view,
       resolution: this.dpr
     });
-
 
     // 添加加载器实例
     this.loader = new KnLoader(this);
@@ -96,7 +98,6 @@ export default class Game {
 
     // 定义游戏容器
     this.world = new KnGroup(this, "world", this.stage);
-
 
     // 载入相关math方法
     this.math = math;
@@ -125,13 +126,11 @@ export default class Game {
 
   // 重置画布尺寸
   resizeStage(config: EnterProps) {
-
     // 屏幕适配
     this.app.renderer["autoResize"] = true;
     this.app.renderer.resize(config.width, config.height);
     settings.SCALE_MODE = SCALE_MODES.NEAREST;
     settings.FILTER_RESOLUTION = window.devicePixelRatio;
-
 
     // 游戏容器适配
     this.world.scale.set(1 / this.dpr);

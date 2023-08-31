@@ -2,7 +2,7 @@
  * @Author: kunnisser
  * @Date: 2023-08-16 17:48:44
  * @LastEditors: kunnisser
- * @LastEditTime: 2023-08-30 17:34:22
+ * @LastEditTime: 2023-08-31 17:43:33
  * @FilePath: /wechat/js/game/src/ast/scene.ts
  * @Description: ----  ----
  */
@@ -46,11 +46,8 @@ class AST extends KnScene {
       },
       [0.5, 0.5]
     );
-    demoText.scale.x = 1;
-    demoText.style.fontSize = 68;
     demoText.style.fill = "#ff6161";
     demoText.angle = 0;
-    demoText.scale.y = 1;
     demoText.alpha = 1;
     demoText.text = "多多词汇峰";
     demoText.anchor.set(0.5, 0.5);
@@ -67,29 +64,20 @@ class AST extends KnScene {
     const cloud = this.game.add.image("cloud", "titleBg", this);
     cloud.x = this.game.config.half_w;
     cloud.y = 301;
-    cloud.scale.y = 0.7;
-    cloud.scale.x = 0.7;
     cloud.anchor.set(0.5, 0.5);
     this.addChild(demoText);
     const mainPeak = this.game.add.image("mainPeak", "mainPeak", this);
     mainPeak.anchor.set(0, 1);
-    mainPeak.scale.y = 1;
-    mainPeak.scale.x = 1;
     mainPeak.y = this.game.config.height;
     mainPeak.x = 0;
     const mountain = this.game.add.image("mountain", "mountain", this);
     mountain.anchor.set(0, 1);
-    mountain.scale.y = 0.9;
-    mountain.scale.x = 0.9;
     mountain.y = this.game.config.height;
     mountain.x = 0;
-    mountain.width = this.game.config.width;
     const platform = this.game.add.image("platform", "platform", this);
     platform.y = this.game.config.height;
     platform.x = this.game.config.width;
     platform.anchor.set(1, 1);
-    platform.scale.y = 1;
-    platform.scale.x = 1;
     const start = this.game.add.button("start", "startBtn", "startBtn", this);
     start.anchor.set(0.5, 0.5);
     start.y = this.game.config.half_h;
