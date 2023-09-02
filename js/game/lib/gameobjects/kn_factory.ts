@@ -13,20 +13,20 @@
  * @param {Core} game - 当前运行的游戏实例的引用
  */
 
-import KnGroup from "../gameobjects/kn_group";
-import KnGraphics from "../gameobjects/kn_graphics";
-import KnText from "../gameobjects/kn_text";
-import KnEmitter from "../gameobjects/kn_emitter";
-import KnTiling from "../gameui/kn_tiling";
-import Game from "../core";
-import { TransformImage } from "../utils/common";
-import { knTweenLine, KnTween } from "../gameobjects/kn_tween";
-import { AnimatedSprite, Ticker, utils } from "@/pixi";
-import KnScene from "./kn_scene";
-import KnSprite from "./kn_sprite";
-import KnBitMapText from "./kn_bitmap_text";
-import SpritePool from "./kn_spritepool";
-import KnBackGround from "./kn_bg";
+import KnGroup from '../gameobjects/kn_group';
+import KnGraphics from '../gameobjects/kn_graphics';
+import KnText from '../gameobjects/kn_text';
+import KnEmitter from '../gameobjects/kn_emitter';
+import KnTiling from '../gameui/kn_tiling';
+import Game from '../core';
+import { TransformImage } from '../utils/common';
+import { knTweenLine, KnTween } from '../gameobjects/kn_tween';
+import { AnimatedSprite, Ticker, utils } from '@/pixi';
+import KnScene from './kn_scene';
+import KnSprite from './kn_sprite';
+import KnBitMapText from './kn_bitmap_text';
+import SpritePool from './kn_spritepool';
+import KnBackGround from './kn_bg';
 
 class KnFactory {
   public game: Game;
@@ -41,7 +41,7 @@ class KnFactory {
   generateTexture = (key: any) => {
     let texture: any = null,
       imageKey: any = null;
-    if (Object.prototype.toString.call(key) === "[object String]") {
+    if (Object.prototype.toString.call(key) === '[object String]') {
       texture = PIXI.utils.TextureCache[key];
       imageKey = key;
     } else {
@@ -58,22 +58,16 @@ class KnFactory {
     align?: Array<number>
   ) => {
     const [imageKey, texture] = this.generateTexture(key);
-    const sprite = new KnSprite(name, imageKey, texture);
+    const sprite = new KnSprite(name, imageKey, texture, this.game);
     align && sprite.anchor.set(...align);
     parent || (parent = this.game.world);
-    console.log(sprite.name, sprite.width);
-    sprite.width *= this.game.gameScale;
-    sprite.height *= this.game.gameScale;
-    console.log(sprite.name, sprite.width);
     return parent.addChild(sprite), sprite;
   };
 
   sprite = (name: string, key: any, anchor?: Array<number>) => {
     const [imageKey, texture] = this.generateTexture(key);
-    const sprite = new KnSprite(name, imageKey, texture);
+    const sprite = new KnSprite(name, imageKey, texture, this.game);
     anchor && sprite.anchor.set(...anchor);
-    sprite.width *= this.game.gameScale;
-    sprite.height *= this.game.gameScale;
     return sprite;
   };
 
@@ -81,7 +75,7 @@ class KnFactory {
     const [imageKey, texture] = this.generateTexture(key);
     const bg = new KnBackGround(name, imageKey, texture);
     bg.position.set(0, 0);
-    bg.tintColor = "#ffffff";
+    bg.tintColor = '#ffffff';
     bg.width = this.game.config.width;
     bg.height = this.game.config.height;
     return bg;
@@ -96,7 +90,7 @@ class KnFactory {
     tipkey?: any
   ) => {
     let btn: any = null;
-    if (typeof key === "number") {
+    if (typeof key === 'number') {
       const btnRect = this.graphics().generateRect(
         key,
         [0, 0, 100, 100, 6],
@@ -106,44 +100,44 @@ class KnFactory {
       key = btnTexture;
     }
 
-    btn = this.image(name || "", key, parent, align);
+    btn = this.image(name || '', key, parent, align);
 
     btn.interactive = !0;
 
-    btn["next"] = null;
+    btn['next'] = null;
 
-    btn.status = "on";
+    btn.status = 'on';
 
     const [texture, swtichTexture] = [
       btn.texture,
-      Object.prototype.toString.call(switchKey) === "[object String]"
+      Object.prototype.toString.call(switchKey) === '[object String]'
         ? utils.TextureCache[switchKey]
-        : switchKey
+        : switchKey,
     ];
 
-    btn.on("pointerdown", (e) => {
+    btn.on('pointerdown', (e) => {
       btn.blendMode = PIXI.BLEND_MODES.ADD_NPM;
       btn.start && btn.start(e);
     });
 
-    btn.on("pointermove", (e) => {
+    btn.on('pointermove', (e) => {
       btn.move && btn.move(e);
     });
 
-    btn.on("pointerupoutside", (e) => {
+    btn.on('pointerupoutside', (e) => {
       btn.blendMode = PIXI.BLEND_MODES.NORMAL;
       btn.outside && btn.outside(e);
     });
 
-    btn.on("pointerup", (e: Event) => {
+    btn.on('pointerup', (e: Event) => {
       if (btn.blendMode === PIXI.BLEND_MODES.ADD_NPM) {
         btn.blendMode = PIXI.BLEND_MODES.NORMAL;
         if (switchKey) {
-          if (btn.status === "on") {
-            btn.status = "off";
+          if (btn.status === 'on') {
+            btn.status = 'off';
             btn.texture = swtichTexture;
           } else {
-            btn.status = "on";
+            btn.status = 'on';
             btn.texture = texture;
           }
         }
@@ -154,7 +148,7 @@ class KnFactory {
     });
 
     if (tipkey) {
-      btn["tip"] = this.image(tipkey + "_tip", tipkey, parent, [0.5, 0.5]);
+      btn['tip'] = this.image(tipkey + '_tip', tipkey, parent, [0.5, 0.5]);
     }
     return btn;
   };
@@ -166,8 +160,6 @@ class KnFactory {
   animation(frames: Array<PIXI.Texture>, speed: number) {
     const anim: AnimatedSprite = new AnimatedSprite(frames);
     anim.animationSpeed = speed || 0.5;
-    anim.width *= this.game.gameScale;
-    anim.height *= this.game.gameScale;
     return anim;
   }
 
@@ -201,12 +193,13 @@ class KnFactory {
 
   text(id: string, content: string, style: any, anchor: Array<number>) {
     let entryStyle = Object.assign({}, style);
-    console.log("text", this.game.gameScale);
+    console.log('text', this.game.gameScale);
     // 处理文字模糊
-    style.fontSize &&
-      (entryStyle.fontSize = 4 * style.fontSize * this.game.gameScale);
+    style.fontSize && (entryStyle.fontSize = 4 * style.fontSize);
     const text = new KnText(id, this.game, content, entryStyle, anchor);
     text.scale.set(0.25);
+    text.scale.x *= this.game.gameScale;
+    text.scale.y *= this.game.gameScale;
     return text;
   }
 
@@ -215,7 +208,7 @@ class KnFactory {
   }
 
   section(
-    label: string = "",
+    label: string = '',
     content: string,
     size: number,
     parent: KnGroup | KnScene,
@@ -226,26 +219,26 @@ class KnFactory {
 
     // 标签文本
     const labelText = this.text(
-      "labelText",
+      'labelText',
       label,
       {
         fontSize: size,
-        fill: "#ffffff",
+        fill: '#ffffff',
         stroke: 0x000000,
         strokeThickness: 6,
         wordWrap: !0,
-        wordWrapWidth: width || 0
+        wordWrapWidth: width || 0,
       },
       [0.5, 0]
     );
 
     // 纯文本
     const text = this.text(
-      "pureText",
+      'pureText',
       content,
       {
         fontSize: size,
-        fill: "#000000"
+        fill: '#000000',
       },
       [0, 0.5]
     );
@@ -263,7 +256,7 @@ class KnFactory {
   // 滚动瓷砖
   tiling(key: any, width: number, height: number, parent: KnGroup | KnScene) {
     const texture =
-      Object.prototype.toString.call(key) === "[object String]"
+      Object.prototype.toString.call(key) === '[object String]'
         ? utils.TextureCache[key]
         : key;
     const tile = new KnTiling(texture, width, height);
@@ -295,9 +288,9 @@ class KnFactory {
         textObj.y = originY + textObj.height;
         tween.instance.to(textObj, 0.2, {
           y: originY,
-          ease: tween.cubic.easeOut
+          ease: tween.cubic.easeOut,
         });
-      }
+      },
     });
   }
 
