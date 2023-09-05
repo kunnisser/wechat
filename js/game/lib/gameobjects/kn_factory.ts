@@ -21,7 +21,7 @@ import KnTiling from "../gameui/kn_tiling";
 import Game from "../core";
 import { TransformImage } from "../utils/common";
 import { knTweenLine, KnTween } from "../gameobjects/kn_tween";
-import { AnimatedSprite, Ticker, utils } from "ts@/kuni/pixi";
+import { Ticker, utils } from "ts@/kuni/pixi";
 import KnScene from "./kn_scene";
 import KnSprite from "./kn_sprite";
 import KnBitMapText from "./kn_bitmap_text";
@@ -158,7 +158,7 @@ class KnFactory {
   }
 
   animation(frames: Array<PIXI.Texture>, speed: number) {
-    const anim: AnimatedSprite = new AnimatedSprite(frames);
+    const anim = new PIXI.extras.AnimatedSprite(frames);
     anim.animationSpeed = speed || 0.5;
     return anim;
   }

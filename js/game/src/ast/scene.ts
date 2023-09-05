@@ -131,7 +131,9 @@ class AST extends KnScene {
     });
   }
 
-  update() {}
+  update() {
+    console.log(213);
+  }
 
   reset() {
     if (this.children.length > 1) {

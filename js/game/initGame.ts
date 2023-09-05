@@ -23,7 +23,7 @@ class initGame {
       isPureCanvas: true
     });
     const GameHive = StateHive(game);
-    game.entryHive = GameHive["Ast"];
+    game.entryHive = GameHive["Welcome"];
     const previewLoader = game.sceneManager.addScene(
       "global_preloader",
       Preloader
