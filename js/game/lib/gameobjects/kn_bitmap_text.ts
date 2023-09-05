@@ -6,7 +6,7 @@
  * @FilePath: /kunigame/projects/kuni/lib/gameobjects/kn_bitmap_text.ts
  * @Description: ---- 点阵文字 ----
  */
-import { BitmapText, ObservablePoint } from "@/pixi";
+import { BitmapText, ObservablePoint } from "ts@/kuni/pixi";
 import Game from "../core";
 
 class KnBitMapText extends BitmapText {

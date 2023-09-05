@@ -1,4 +1,4 @@
-import * as PIXI from "@/pixi";
+import * as PIXI from "ts@/kuni/pixi";
 window["PIXI"] = PIXI;
 require("pixi-tilemap");
 

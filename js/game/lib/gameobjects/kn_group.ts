@@ -1,4 +1,4 @@
-import { Container } from "@/pixi";
+import { Container } from "ts@/kuni/pixi";
 
 class KnGroup extends Container {
   public game: object;

@@ -1,6 +1,6 @@
 import KnGroup from "../gameobjects/kn_group";
 import Game from "../core";
-import { Container } from "@/pixi";
+import { Container } from "ts@/kuni/pixi";
 import KnScene from "../gameobjects/kn_scene";
 import KnText from "../gameobjects/kn_text";
 

@@ -1,34 +1,30 @@
 {
   "compilerOptions": {
-      "baseUrl": ".",
-      "outDir": "dist",
-      "sourceMap": false,
-      "target": "es5",
-      "module": "esnext",
-      "moduleResolution": "node",
-      "allowJs": true,
-      "noUnusedLocals": true,
-      "strictNullChecks": true,
-      "noImplicitAny": false,
-      "noImplicitThis": true,
-      "experimentalDecorators": true,
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "removeComments": false,
-      "jsx": "preserve",
-      "lib": ["esnext", "dom"],
-      "rootDir": ".",
-      "noEmit": false,
-      "paths": {
-        "@/*": ["js/game/*"]
-      },
-      "types": ["minigame-api-typings"],
+    "baseUrl": ".",
+    "outDir": "dist",
+    "sourceMap": false,
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "rootDir": ".",
+    "noEmit": false,
+    "paths": {
+      "ts@/kuni/*": ["js/game/*"],
+      "dragonBones.min.js": ["core/dragonBones.min.js"]
+    },
+    "types": ["minigame-api-typings"]
   },
-  "include": [
-    "js/game/**/*",
-    "game.js"
-  ],
-  "exclude": [
-      "./node_modules"
-  ]
+  "include": ["js/game/**/*", "game.js", "core/*"],
+  "exclude": ["./node_modules"]
 }

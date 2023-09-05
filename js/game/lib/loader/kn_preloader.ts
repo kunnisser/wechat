@@ -12,7 +12,7 @@
 import KnScene from "../gameobjects/kn_scene";
 import KnGraphics from "../gameobjects/kn_graphics";
 import Game from "../core";
-import { AnimatedSprite } from "@/pixi";
+import { AnimatedSprite } from "ts@/kuni/pixi";
 
 class Preloader extends KnScene {
   public loadingTypes: Map<string, Function>;

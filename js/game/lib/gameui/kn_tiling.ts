@@ -1,4 +1,4 @@
-import { TilingSprite, Texture } from "@/pixi";
+import { TilingSprite, Texture } from "ts@/kuni/pixi";
 import KnGroup from "../gameobjects/kn_group";
 import KnScene from "../gameobjects/kn_scene";
 class KnTiling extends TilingSprite {

@@ -1,6 +1,6 @@
 /* 场景基础类 */
 
-import { Container } from "@/pixi";
+import { Container } from "ts@/kuni/pixi";
 import KnGraphics from "./kn_graphics";
 import KnMessage from "../gameui/kn_message";
 

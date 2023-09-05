@@ -1,5 +1,5 @@
 import Game from "../core";
-import { Sprite } from "@/pixi";
+import { Sprite } from "ts@/kuni/pixi";
 import { TransformImage } from "../utils/common";
 import KnGraphics from "../gameobjects/kn_graphics";
 

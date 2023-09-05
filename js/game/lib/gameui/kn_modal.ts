@@ -1,5 +1,5 @@
 import KnGroup from "../gameobjects/kn_group";
-import { Container } from "@/pixi";
+import { Container } from "ts@/kuni/pixi";
 import Game from "../core";
 import KnScene from "../gameobjects/kn_scene";
 import { events } from "../utils/common";

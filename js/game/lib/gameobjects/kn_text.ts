@@ -1,4 +1,4 @@
-import { Text } from "@/pixi";
+import { Text } from "ts@/kuni/pixi";
 import Game from "../core";
 
 class KnText extends Text {

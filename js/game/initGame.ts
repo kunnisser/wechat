@@ -3,15 +3,15 @@
  * 初始化Game
  * */
 
-import '../libs/index';
-import '../libs/symbol';
-import { canvas } from '../libs/window';
-import '@/pixi';
-import './unsafe-eval.min.js';
+import "../libs/index";
+import "../libs/symbol";
+import { canvas } from "../libs/window";
+import "ts@/kuni/pixi";
+import "./unsafe-eval.min.js";
 
-import Game from '@/lib/core';
-import StateHive from '@/src/hive';
-import Preloader from '@/lib/loader/kn_preloader';
+import Game from "ts@/kuni/lib/core";
+import StateHive from "ts@/kuni/src/hive";
+import Preloader from "ts@/kuni/lib/loader/kn_preloader";
 
 class initGame {
   constructor() {
@@ -20,12 +20,12 @@ class initGame {
       width: windowWidth, // Config.width,
       height: windowHeight, // Config.ratio,
       view: canvas,
-      isPureCanvas: true,
+      isPureCanvas: true
     });
     const GameHive = StateHive(game);
-    game.entryHive = GameHive['Ast'];
+    game.entryHive = GameHive["Ast"];
     const previewLoader = game.sceneManager.addScene(
-      'global_preloader',
+      "global_preloader",
       Preloader
     );
     console.log(previewLoader);

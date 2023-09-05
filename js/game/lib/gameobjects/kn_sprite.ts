@@ -6,8 +6,8 @@
  * @FilePath: \wechat\js\game\lib\gameobjects\kn_sprite.ts
  * @Description: ---- sprite类 ----
  */
-import { Sprite, Texture } from '@/pixi';
-import Game from '../core';
+import { Sprite, Texture } from "ts@/kuni/pixi";
+import Game from "../core";
 
 class KnSprite extends Sprite {
   game: Game;
@@ -26,13 +26,13 @@ class KnSprite extends Sprite {
   }
 
   set tintColor(color: string) {
-    const colorNumber: number = +`0x${color.split('#')[1]}`;
+    const colorNumber: number = +`0x${color.split("#")[1]}`;
     this.tint = colorNumber;
   }
 
   get tintColor() {
     const tintString = this.tint.toString(16);
-    return '#' + tintString;
+    return "#" + tintString;
   }
 }
 

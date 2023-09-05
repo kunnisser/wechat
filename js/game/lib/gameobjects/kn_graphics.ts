@@ -1,4 +1,4 @@
-import { Graphics } from "@/pixi";
+import { Graphics } from "ts@/kuni/pixi";
 import Game from "../core";
 import { rotatePointers } from "../utils/common";
 
