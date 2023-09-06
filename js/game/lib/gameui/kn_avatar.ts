@@ -1,6 +1,6 @@
 import KnGroup from "../gameobjects/kn_group";
 import Game from "../core";
-import { Sprite, Text } from "ts@/kuni/pixi";
+import { Sprite, Text } from "pixi.js";
 
 class KnAvatar extends KnGroup {
   public game: Game;

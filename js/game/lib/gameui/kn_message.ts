@@ -1,5 +1,5 @@
 import KnGroup from "../gameobjects/kn_group";
-import { Container } from "ts@/kuni/pixi";
+import { Container } from "pixi.js";
 import Game from "../core";
 import KnText from "../gameobjects/kn_text";
 

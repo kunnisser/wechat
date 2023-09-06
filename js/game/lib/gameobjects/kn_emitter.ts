@@ -7,7 +7,7 @@
 
 /* 粒子发射器类 */
 
-import { ParticleContainer, utils, Sprite } from "ts@/kuni/pixi";
+import { ParticleContainer, utils, Sprite } from "pixi.js";
 import Game from "../core";
 const ParticleConfig: any = {
   scale: true,

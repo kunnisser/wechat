@@ -6,7 +6,7 @@
  * @FilePath: \wechat\js\game\lib\gameobjects\kn_sprite.ts
  * @Description: ---- sprite类 ----
  */
-import { Sprite, Texture } from "ts@/kuni/pixi";
+import { Sprite, Texture } from "pixi.js";
 import Game from "../core";
 
 class KnSprite extends Sprite {

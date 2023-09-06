@@ -1,4 +1,4 @@
-import { Container } from "ts@/kuni/pixi";
+import { Container } from "pixi.js";
 
 class KnGroup extends Container {
   public game: object;

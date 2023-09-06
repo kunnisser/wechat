@@ -1,5 +1,5 @@
 import Game from "../core";
-import { Graphics, Container } from "ts@/kuni/pixi";
+import { Graphics, Container } from "pixi.js";
 
 // 防抖函数
 const debounce: any = {

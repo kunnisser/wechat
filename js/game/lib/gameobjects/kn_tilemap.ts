@@ -1,5 +1,3 @@
-import * as PIXI from "ts@/kuni/pixi";
-window["PIXI"] = PIXI;
 require("pixi-tilemap");
 
 class TileMap {
@@ -21,7 +19,6 @@ class TileMap {
     alias: Array<any>,
     options: any
   ) {
-    console.log(window);
     this.tile = new PIXI["tilemap"].CompositeRectTileLayer(0, textures);
     this.alias = alias;
     this.textures = textures;

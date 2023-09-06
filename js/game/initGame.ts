@@ -6,16 +6,16 @@
 import "../libs/index";
 import "../libs/symbol";
 import { canvas } from "../libs/window";
-import "ts@/kuni/pixi";
-import "./unsafe-eval.min.js";
-
+import * as PIXI from "pixi.js";
 import Game from "ts@/kuni/lib/core";
 import StateHive from "ts@/kuni/src/hive";
 import Preloader from "ts@/kuni/lib/loader/kn_preloader";
+import { install } from "@pixi/unsafe-eval";
 
 class initGame {
   constructor() {
     const { windowWidth, windowHeight } = wx.getSystemInfoSync();
+    install(PIXI);
     const game = new Game({
       width: windowWidth, // Config.width,
       height: windowHeight, // Config.ratio,

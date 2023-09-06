@@ -1,6 +1,6 @@
 import KnGroup from "../gameobjects/kn_group";
 import Game from "../core";
-import { Container } from "ts@/kuni/pixi";
+import { Container } from "pixi.js";
 
 class KnMenuBar extends KnGroup {
   public game: Game;

@@ -21,7 +21,8 @@
     "noEmit": false,
     "paths": {
       "ts@/kuni/*": ["js/game/*"],
-      "dragonBones.min.js": ["core/dragonBones.min.js"]
+      "dragonBones.min.js": ["core/dragonBones.min.js"],
+      "pixi.js": ["core/pixi.js"]
     },
     "types": ["minigame-api-typings"]
   },

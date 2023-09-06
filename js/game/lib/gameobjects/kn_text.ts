@@ -1,4 +1,4 @@
-import { Text } from "ts@/kuni/pixi";
+import { Text } from "pixi.js";
 import Game from "../core";
 
 class KnText extends Text {

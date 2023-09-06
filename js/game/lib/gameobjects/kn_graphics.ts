@@ -1,4 +1,4 @@
-import { Graphics } from "ts@/kuni/pixi";
+import { Graphics } from "pixi.js";
 import Game from "../core";
 import { rotatePointers } from "../utils/common";
 

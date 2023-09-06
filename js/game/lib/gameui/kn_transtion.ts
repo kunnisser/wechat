@@ -1,5 +1,5 @@
 import Game from "../core";
-import { Sprite } from "ts@/kuni/pixi";
+import { Sprite } from "pixi.js";
 import { TransformImage } from "../utils/common";
 import KnGraphics from "../gameobjects/kn_graphics";
 

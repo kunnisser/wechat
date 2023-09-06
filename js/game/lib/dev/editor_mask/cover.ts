@@ -7,7 +7,7 @@
  * @Description: ---- 编辑蒙层 ----
  */
 
-import { Container, Text } from "ts@/kuni/pixi";
+import { Container, Text } from "pixi.js";
 import Game from "../../core";
 import KnGraphics from "../../gameobjects/kn_graphics";
 import KnGroup from "../../gameobjects/kn_group";

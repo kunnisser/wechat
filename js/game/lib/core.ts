@@ -1,7 +1,7 @@
 import KnFactory from "../lib/gameobjects/kn_factory";
 import KnLoader from "../lib/loader/kn_loader";
 import KnSceneManager from "../lib/gameobjects/kn_scene_manager";
-import { Application, settings, SCALE_MODES } from "ts@/kuni/pixi";
+import { Application, settings, SCALE_MODES } from "pixi.js";
 import { math } from "../lib/utils/common";
 import KnScene from "./gameobjects/kn_scene";
 import KnTranstion from "../lib/gameui/kn_transtion";
