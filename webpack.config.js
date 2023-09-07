@@ -40,7 +40,6 @@ module.exports = {
       url: require.resolve("url/")
     },
     alias: {
-      "dragonBones.min.js": path.resolve(__dirname, "core/dragonBones.min.js"),
       "pixi.js": path.resolve(__dirname, "core/pixi.js"),
       "ts@/kuni": path.resolve(__dirname, "js/game")
     },

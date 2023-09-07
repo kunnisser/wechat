@@ -16,19 +16,20 @@ class initGame {
   constructor() {
     const { windowWidth, windowHeight } = wx.getSystemInfoSync();
     install(PIXI);
+
     const game = new Game({
       width: windowWidth, // Config.width,
       height: windowHeight, // Config.ratio,
       view: canvas,
       isPureCanvas: true
     });
+
     const GameHive = StateHive(game);
-    game.entryHive = GameHive["Welcome"];
+    game.entryHive = GameHive["Ast"];
     const previewLoader = game.sceneManager.addScene(
       "global_preloader",
       Preloader
     );
-    console.log(previewLoader);
     game.sceneManager.changeScene(null, previewLoader);
   }
 }

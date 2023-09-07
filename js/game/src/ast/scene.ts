@@ -2,14 +2,14 @@
  * @Author: kunnisser
  * @Date: 2023-08-16 17:48:44
  * @LastEditors: kunnisser
- * @LastEditTime: 2023-09-05 16:47:52
+ * @LastEditTime: 2023-09-07 16:33:48
  * @FilePath: /wechat/js/game/src/ast/scene.ts
  * @Description: ----  ----
  */
 import Game from "ts@/kuni/lib/core";
 import KnScene from "ts@/kuni/lib/gameobjects/kn_scene";
 import KnText from "ts@/kuni/lib/gameobjects/kn_text";
-import dragonBones from "dragonBones.min.js";
+import * as dragonBones from "ts@/kuni/dragonBones.min.js";
 class AST extends KnScene {
   public game: Game;
   constructor(game: Game, key: string) {
