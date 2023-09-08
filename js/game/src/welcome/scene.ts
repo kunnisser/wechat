@@ -2,14 +2,14 @@
  * @Author: kunnisser
  * @Date: 2021-02-26 14:50:22
  * @LastEditors: kunnisser
- * @LastEditTime: 2023-09-05 23:34:18
- * @FilePath: \wechat\js\game\src\welcome\scene.ts
+ * @LastEditTime: 2023-09-08 17:10:04
+ * @FilePath: /wechat/js/game/src/welcome/scene.ts
  * @Description: ---- 示例欢迎场景 ----
  */
-import KnScene from 'ts@/kuni/lib/gameobjects/kn_scene';
-import Game from 'ts@/kuni/lib/core';
-import KnSprite from 'ts@/kuni/lib/gameobjects/kn_sprite';
-import KnGroup from 'ts@/kuni/lib/gameobjects/kn_group';
+import KnScene from "ts@/kuni/lib/gameobjects/kn_scene";
+import Game from "ts@/kuni/lib/core";
+import KnSprite from "ts@/kuni/lib/gameobjects/kn_sprite";
+import KnGroup from "ts@/kuni/lib/gameobjects/kn_group";
 
 class Welcome extends KnScene {
   game: Game;
@@ -22,31 +22,31 @@ class Welcome extends KnScene {
     this.game = game;
     this.key = key;
     this.resources = {
-      gameBg: 'assets/images/gameBg.png',
-      rocket: 'assets/images/rocket.png',
-      fire: 'assets/atlas/fire.json',
-      moon: 'assets/images/moon.png',
+      gameBg: "assets/images/gameBg.png",
+      rocket: "assets/images/rocket.png",
+      fire: "assets/atlas/fire.json",
+      moon: "assets/images/moon.png"
     };
   }
 
   boot() {}
 
   create() {
-    const bg: KnSprite = this.game.add.background('bg', 'gameBg');
-    bg.visible = true;
-    this.addChild(bg);
-    this.moonGroup = this.game.add.group('planet', this);
+    const welcomeBg: KnSprite = this.game.add.background("welcomeBg", "gameBg");
+    welcomeBg.visible = true;
+    this.addChild(welcomeBg);
+    this.moonGroup = this.game.add.group("planet", this);
     this.moonGroup.x = this.game.config.half_w;
     this.moonGroup.y = this.game.config.half_h;
 
-    const moon = this.game.add.image('moon', 'moon', this.moonGroup);
+    const moon = this.game.add.image("moon", "moon", this.moonGroup);
     moon.anchor.set(0.5, 0.5);
     moon.x = 0;
     moon.y = 0;
     this.moon = moon;
     const rocket: KnSprite = this.game.add.image(
-      'rocket',
-      'rocket',
+      "rocket",
+      "rocket",
       this.moonGroup
     );
     rocket.anchor.set(0.5, 1);

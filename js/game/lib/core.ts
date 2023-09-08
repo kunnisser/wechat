@@ -127,7 +127,7 @@ export default class Game {
   // 重置画布尺寸
   resizeStage(config: EnterProps) {
     // 屏幕适配
-    this.app.renderer["autoResize"] = true;
+    this.app.renderer["autoDensity"] = true;
     this.app.renderer.resize(config.width, config.height);
     settings.SCALE_MODE = SCALE_MODES.NEAREST;
     settings.FILTER_RESOLUTION = window.devicePixelRatio;
@@ -145,7 +145,7 @@ export default class Game {
 
   refresh() {
     // 创建全局刷新器
-    this.ticker = PIXI["ticker"].shared;
+    this.ticker = PIXI["Ticker"].shared;
     this.ticker.autoStart = false;
     this.ticker.stop();
   }

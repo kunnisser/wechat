@@ -114,6 +114,7 @@ export function scrollRegion(obj) {
 
 export function classList(obj) {
   const noop = function () {};
+  // 注释此处，在微信高性能模式下，IOS会报错，且PIXI代码中未使用classList
   // obj.classList = [];
   // obj.classList.add = noop;
   // obj.classList.remove = noop;
