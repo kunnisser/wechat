@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const progressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   watch: true,
   devtool: 'cheap-source-map',
   entry: path.resolve('./', 'js/game/main.ts'),

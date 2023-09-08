@@ -1,1 +1,2 @@
-import './dist/main.min';
+import "./highperformancehook";
+import "./dist/main.min";
