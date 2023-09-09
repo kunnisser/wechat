@@ -9,10 +9,10 @@
  * 场景切换资源加载
  */
 
-import KnScene from "../gameobjects/kn_scene";
-import KnGraphics from "../gameobjects/kn_graphics";
-import Game from "../core";
-import { AnimatedSprite } from "pixi.js";
+import KnScene from '../gameobjects/kn_scene';
+import KnGraphics from '../gameobjects/kn_graphics';
+import Game from '../core';
+import { AnimatedSprite } from 'pixi.js';
 
 class Preloader extends KnScene {
   public loadingTypes: Map<string, Function>;
@@ -30,7 +30,7 @@ class Preloader extends KnScene {
     super(game, key);
     this.game = game;
     this.resources = {
-      bg001: "assets/images/gameBg.png"
+      gameBg: 'assets/images/gameBg.png',
       // run: "/projects/kuni/assets/data/loadingrun.json",
     };
   }
@@ -59,15 +59,15 @@ class Preloader extends KnScene {
 
   create() {
     const tmpText = this.game.add.text(
-      "",
-      "loading...",
-      { fontFamily: "GrilledCheeseBTNToasted", fontSize: 12 },
+      '',
+      'loading...',
+      { fontFamily: 'GrilledCheeseBTNToasted', fontSize: 12 },
       [0.5, 0.5]
     );
     this.addChild(tmpText);
     this.removeChild(tmpText);
     this.position.set(this.game.config.half_w, this.game.config.half_h);
-    this.bg = this.game.add.image("", "bg001", this);
+    this.bg = this.game.add.image('preloaderBg', 'gameBg', this);
     this.bg.width = this.game.config.width;
     this.bg.height = this.game.config.height;
     this.bg.anchor.set(0.5);
