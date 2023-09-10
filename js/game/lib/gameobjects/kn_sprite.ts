@@ -19,9 +19,10 @@ class KnSprite extends Sprite {
     this.id = id;
     this.name = key || id;
     this.boot = true;
-    if (game) {
+    if (game && this.boot) {
       this.texture.orig.width *= game?.gameScale;
       this.texture.orig.height *= game?.gameScale;
+      this.boot = false;
     }
   }
 

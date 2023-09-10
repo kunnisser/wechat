@@ -7,15 +7,15 @@
 
 /* 粒子发射器类 */
 
-import { ParticleContainer, utils, Sprite } from "pixi.js";
-import Game from "../core";
+import { ParticleContainer, Sprite, utils } from 'pixi.js';
+import Game from '../core';
 const ParticleConfig: any = {
   scale: true,
   position: true,
   visible: true,
   rotation: true,
   uvs: true,
-  alpha: true
+  alpha: true,
 };
 class KnEmitter extends ParticleContainer {
   public key: string;
@@ -34,49 +34,104 @@ class KnEmitter extends ParticleContainer {
   }
 
   public create(quality: number = 10, key: string) {
-    const texture = utils.TextureCache[key];
+    const createdSprite: Array<Sprite> = [];
     for (let i = 0; i < quality; i++) {
-      let sprite: Sprite = new Sprite(texture);
+      let sprite: Sprite = new Sprite(utils.TextureCache[key]);
       sprite.alpha = 0;
       sprite.anchor.set(0.5);
-      sprite.scale.set(0.5);
-
-      // 添加到组中
-      this.addChild(sprite);
-      if (quality === 1) {
-        return sprite;
-      }
+      // 一次新增的多个对象
+      createdSprite.push(sprite);
     }
-    return null;
+    this.addChild(...createdSprite);
+    return createdSprite;
   }
-
-  public getParticle() {
-    let bootParticle: any = null;
-    bootParticle = this.children.find((particle) => {
+  public getParticle(count?: number) {
+    const freeParticles: Array<any> = this.children.filter((particle: any) => {
       return particle.alpha === 0;
     });
-    return bootParticle || this.create(1, this.key);
+    const bootCount: number = count || 1;
+    if (freeParticles.length >= bootCount) {
+      return freeParticles.slice(0, bootCount);
+    } else {
+      return this.create(bootCount, this.key);
+    }
   }
 
   // 单粒子发射 (发射器移动)
   public shoot() {
-    let shootParticle: Sprite = this.getParticle();
+    let shootParticle: Sprite = this.getParticle(1)[0];
     shootParticle.alpha = 1;
     shootParticle.angle = 0;
     return shootParticle;
   }
 
+  public particleBooleanDispose = (bool, ret: any) => {
+    return bool ? ret : 1;
+  };
+
   // 多粒子发射 (发射器静止)
-  public shootMulite(num: number = 1) {
-    let bootParticles: Array<any> = [];
-    for (let i = 0; i < num; i++) {
-      const shootParticle = this.getParticle();
-      shootParticle.alpha = 1;
-      shootParticle.angle = 0;
-      bootParticles.push(shootParticle);
-    }
+  public shootMulite(num: number = 1): Array<Sprite> {
+    const shootParticles = this.getParticle(num);
+    const bootParticles: Array<Sprite> = shootParticles.map(
+      (shootParticle) => {
+        shootParticle.alpha = 1;
+        shootParticle.angle = 0;
+        return shootParticle;
+      }
+    );
     return bootParticles;
   }
+
+  // 粒子发射
+  public multeShootOnce = (
+    game,
+    tween,
+    pointX: number,
+    pointY: number,
+    options
+  ) => {
+    const {
+      xDirect,
+      xRandom,
+      yDirect,
+      yRandom,
+      offsetX,
+      offsetY,
+      count,
+      duration,
+      ease,
+      inout,
+      angle,
+      angleRandom,
+      angleDirect,
+      width,
+      height,
+    } = options;
+    const particles: Array<Sprite> = this.shootMulite(count);
+    for (let particle of particles) {
+      particle.x = pointX + game.math.redirect() * Math.random() * width;
+      particle.y = pointY + game.math.redirect() * Math.random() * height;
+      tween.instance.to(particle, duration, {
+        x:
+          particle.x +
+          this.particleBooleanDispose(xDirect, game.math.redirect()) *
+            this.particleBooleanDispose(xRandom, Math.random()) *
+            offsetX,
+        y:
+          particle.y +
+          this.particleBooleanDispose(yDirect, game.math.redirect()) *
+            this.particleBooleanDispose(yRandom, Math.random()) *
+            offsetY,
+        angle:
+          particle.angle +
+          this.particleBooleanDispose(angleDirect, game.math.redirect()) *
+            this.particleBooleanDispose(angleRandom, Math.random()) *
+            angle,
+        alpha: 0,
+        ease: tween[ease][inout],
+      });
+    }
+  };
 }
 
 export default KnEmitter;
