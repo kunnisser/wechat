@@ -21,7 +21,8 @@ class initGame {
     });
 
     const GameHive = StateHive(game);
-    game.entryHive = GameHive['Welcome'];
+    game.hive = GameHive;
+    game.entryHive = GameHive['Card'];
     const previewLoader = game.sceneManager.addScene(
       'global_preloader',
       Preloader

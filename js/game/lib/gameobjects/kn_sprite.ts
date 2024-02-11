@@ -2,12 +2,12 @@
  * @Author: kunnisser
  * @Date: 2023-02-14 16:15:56
  * @LastEditors: kunnisser
- * @LastEditTime: 2023-09-01 01:17:22
- * @FilePath: \wechat\js\game\lib\gameobjects\kn_sprite.ts
+ * @LastEditTime: 2024-02-12 00:31:15
+ * @FilePath: /wechat/js/game/lib/gameobjects/kn_sprite.ts
  * @Description: ---- sprite类 ----
  */
-import { Sprite, Texture } from "pixi.js";
-import Game from "../core";
+import { Sprite, Texture } from 'pixi.js';
+import Game from '../core';
 
 class KnSprite extends Sprite {
   game: Game;
@@ -18,22 +18,23 @@ class KnSprite extends Sprite {
     super(texture);
     this.id = id;
     this.name = key || id;
-    this.boot = true;
-    if (game && this.boot) {
+    if (game && !this.texture['boot']) {
+      // 如果重复生成多个相同sprite的话，这里的texture纹理原始尺寸会被多次放大，而浏览器没做缩放所以没有此类问题
+      // 使用 boot 来判断
       this.texture.orig.width *= game?.gameScale;
       this.texture.orig.height *= game?.gameScale;
-      this.boot = false;
+      this.texture['boot'] = 'true';
     }
   }
 
   set tintColor(color: string) {
-    const colorNumber: number = +`0x${color.split("#")[1]}`;
+    const colorNumber: number = +`0x${color.split('#')[1]}`;
     this.tint = colorNumber;
   }
 
   get tintColor() {
     const tintString = this.tint.toString(16);
-    return "#" + tintString;
+    return '#' + tintString;
   }
 }
 

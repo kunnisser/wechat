@@ -31,7 +31,6 @@ class Preloader extends KnScene {
     this.game = game;
     this.resources = {
       gameBg: 'assets/images/gameBg.png',
-      // run: "/projects/kuni/assets/data/loadingrun.json",
     };
   }
 

@@ -28,8 +28,6 @@
     "userConfirmedUseCompilerModuleSwitch": false,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
     "userConfirmedUseIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
@@ -42,9 +40,14 @@
     "condition": false
   },
   "compileType": "game",
-  "libVersion": "2.33.0",
   "appid": "wx550849c12ad51578",
-  "projectname": "wechat",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {},
   "packOptions": {
     "ignore": [
       {
@@ -54,13 +57,7 @@
     ],
     "include": []
   },
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
-  },
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {},
+  "projectname": "wechat",
   "staticServerOptions": {
     "servePath": "assets"
   }

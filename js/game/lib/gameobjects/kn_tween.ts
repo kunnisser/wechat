@@ -5,8 +5,8 @@ import {
   Power2,
   Bounce,
   Back,
-  Sine
-} from "gsap";
+  Sine,
+} from 'gsap';
 
 class knTweenLine extends TimelineLite {
   public linear: Function;
@@ -19,11 +19,11 @@ class knTweenLine extends TimelineLite {
 }
 
 class KnTween {
-  public linear: Function;
-  public cubic: Function;
-  public bounce: Function;
-  public back: Function;
-  public sine: Function;
+  public linear: any;
+  public cubic: any;
+  public bounce: any;
+  public back: any;
+  public sine: any;
   public instance: any;
   constructor() {
     this.linear = Linear;

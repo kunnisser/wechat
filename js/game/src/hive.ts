@@ -2,17 +2,15 @@
  * @Author: kunnisser
  * @Date: 2023-08-16 17:48:14
  * @LastEditors: kunnisser
- * @LastEditTime: 2023-09-05 17:31:30
+ * @LastEditTime: 2024-02-08 00:49:45
  * @FilePath: /wechat/js/game/src/hive.ts
  * @Description: ---- 场景汇总 ----
  */
 // 场景映射配置
-import Ast from "./ast/scene";
-import Welcome from "./welcome/scene";
+import Card from './card/scene';
 
 const StateHiveKey = {
-  Ast: Ast,
-  Welcome: Welcome
+  Card: Card,
 };
 
 const StateHive = (game) => {
